@@ -1,11 +1,15 @@
 import { Fragment, useState } from 'react';
 import Timer from './Timer';
-
-const Balloons = ({ children }) => <div>{children}</div>
-const Balloon = () => <button>Balloon</button>
+import Balloons from './Balloons';
+import Balloon from './Balloon';
+import Score from './Score';
 
 const PopBalloons = () => {
     const [playing, setPlaying] = useState(false);
+    const [score, setScore] = useState(0);
+
+    const onPop = points => setScore(score + points);
+
     return (
     <Fragment>
         {!playing && <h1>Pop the Balloons</h1>}
@@ -14,16 +18,19 @@ const PopBalloons = () => {
         </button>
         {playing && (
             <Fragment>
+                <Score
+                    value={score}
+                />
                 <Timer
                     time={30000}
                     onEnd={() => setPlaying(false)}
                 />
                 <Balloons>
-                    <Balloon/>
-                    <Balloon/>
-                    <Balloon/>
-                    <Balloon/>
-                    <Balloon/>
+                    <Balloon onPop={onPop}/>
+                    <Balloon onPop={onPop}/>
+                    <Balloon onPop={onPop}/>
+                    <Balloon onPop={onPop}/>
+                    <Balloon onPop={onPop}/>
                 </Balloons>
             </Fragment>
         )}
