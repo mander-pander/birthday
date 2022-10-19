@@ -1,10 +1,11 @@
-import Balloons from './Components/Balloons';
+import PopBalloons from './Components/PopBalloons';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Balloons />
+
+      <PopBalloons />
     </div>
   );
 }
