@@ -1,10 +1,8 @@
 import { Fragment, useState } from 'react';
-
+import Timer from './Timer';
 
 const Balloons = ({ children }) => <div>{children}</div>
 const Balloon = () => <button>Balloon</button>
-const Timer = () => <div>Time: 00:00</div>
-const Score = () => <div>Score: 0</div>
 
 const PopBalloons = () => {
     const [playing, setPlaying] = useState(false);
@@ -16,8 +14,10 @@ const PopBalloons = () => {
         </button>
         {playing && (
             <Fragment>
-                <Score/>
-                <Timer/>
+                <Timer
+                    time={30000}
+                    onEnd={() => setPlaying(false)}
+                />
                 <Balloons>
                     <Balloon/>
                     <Balloon/>
