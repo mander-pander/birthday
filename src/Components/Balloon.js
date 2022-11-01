@@ -1,15 +1,22 @@
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 
-const Balloon = ({ onPop, points, delay, speed, pointsMin = 1 }) => {
+const Balloon = ({
+    onPop,
+    points,
+    delay,
+    speed,
+    pointsMin = 1,
+}) => {
     const [popped, setPopped] = useState(false);
-    const buttonRef = useRef(null);
-    const bobRef = useRef(null);
-    const pointsRef = useRef(points);
+    const setButton = useRef(null);
+    const setPoints = useRef(points);
+    const setPops = useRef(null);
 
     useEffect(() => {
-        gsap.set(buttonRef.current, {yPercent: 100});
-        bobRef.current = gsap.to(buttonRef.current, {
+        gsap.set(setButton.current, {yPercent: 100, display: "block"});
+
+        setPops.current = gsap.to(setButton.current, {
             yPercent: 0,
             duration: speed,
             yoyo: true,
@@ -17,44 +24,44 @@ const Balloon = ({ onPop, points, delay, speed, pointsMin = 1 }) => {
             delay: delay,
             repeatDelay: delay,
             onRepeat: () => {
-                pointsRef.current = Math.floor(
-                    Math.max(pointsRef.current * .9, pointsMin)
+                setPoints.current = Math.floor(
+                    Math.max(setPoints.current * .9, pointsMin)
                   )
             },
-        })
+        });
+
         return () => {
-            if (bobRef.current) bobRef.current.kill()
+            if (setPops.current) setPops.current.kill()
           }
     }, [pointsMin, delay, speed]);
 
+    const pop = () => {
+        setPopped(true)
+        onPop(setPoints.current)
+    };
+
     useEffect(() => {
         if (popped) {
-            pointsRef.current = points;
+            setPoints.current = points;
+            setPops.current.pause();
 
-            bobRef.current.pause();
-
-            gsap.to(buttonRef.current, {
+            gsap.to(setButton.current, {
                 yPercent: 100,
                 duration: 0.1,
                 onComplete: () => {
                     gsap.delayedCall(gsap.utils.random(1, 3), () => {
                         setPopped(false);
-                        bobRef.current.restart()
-                        .timeScale(bobRef.current.timeScale() * 1.25)
+                        setPops.current.restart()
+                        .timeScale(setPops.current.timeScale() * 1.25)
                     })
                 },
             })
         }
     }, [popped])
 
-    const pop = () => {
-        setPopped(true)
-        onPop(pointsRef.current)
-    }
-
     return (
         <button
-            ref={buttonRef}
+            ref={setButton}
             onClick={pop}
         >
             Balloon
