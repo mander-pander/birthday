@@ -3,32 +3,27 @@ import Timer from './Timer';
 import Balloons from './Balloons';
 import Balloon from './Balloon';
 import Score from './Score';
-import { gsap } from "gsap";
-
-const generateBalloons = amount => new Array(amount).fill().map(() => ({
-    speed: gsap.utils.random(0.5, 1),
-    delay: gsap.utils.random(0.5, 4),
-    points: 1
-  }))
+import generateBalloons from '../utils/generateBalloons';
 
 const PopBalloons = () => {
     const [playing, setPlaying] = useState(false);
     const [finished, setFinished] = useState(false);
     const [score, setScore] = useState(0);
-    const [balloons, setBalloons] = useState(generateBalloons(5));
+
+    const [balloons] = useState(generateBalloons(31));
 
     const onPop = points => setScore(score + points);
 
     const endGame = () => {
         setPlaying(false)
         setFinished(true)
-      }
+    };
 
       const startGame = () => {
         setScore(0)
         setPlaying(true)
         setFinished(false)
-      }
+    };
 
 
     return (
