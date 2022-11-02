@@ -1,5 +1,7 @@
+import styles from "./Balloon.module.css";
+
 const Balloons = ({ children }) => {
-    return <div>{children}</div>
+    return <div className={styles.balloons}>{children}</div>
 }
 
 export default Balloons;

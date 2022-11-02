@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
+import styles from "./Balloon.module.css";
 
 const Balloon = ({
     onPop,
@@ -60,12 +61,13 @@ const Balloon = ({
     }, [popped])
 
     return (
-        <button
-            ref={setButton}
-            onClick={pop}
-        >
-            Balloon
-        </button>
+        <div className={styles.inflator}>
+            <button className={styles.balloon}
+                ref={setButton}
+                onClick={pop}
+            >
+            </button>
+        </div>
     )
 }
 

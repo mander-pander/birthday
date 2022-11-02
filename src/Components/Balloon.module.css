@@ -1,0 +1,23 @@
+.balloons {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(6, 100px);
+    align-items: center;
+}
+
+.balloon {
+    background: url(../images/pngtree-blue-wedding-banquet-balloons-png-image_5524505.png);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border: 0;
+}
+
+.inflator {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 30px;
+    border-bottom: 12px solid red;
+}
