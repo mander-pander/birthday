@@ -11,7 +11,7 @@ const PopBalloons = () => {
     const [finished, setFinished] = useState(false);
     const [score, setScore] = useState(0);
 
-    const [balloons] = useState(generateBalloons(31));
+    const [balloons] = useState(generateBalloons(18));
 
     const onPop = points => setScore(score + points);
 
@@ -23,11 +23,11 @@ const PopBalloons = () => {
                 origin: { y: .9 }
               });
         }
-        setPlaying(false)
-        setFinished(true)
+        setPlaying(false);
+        setFinished(true);
     };
 
-      const startGame = () => {
+    const startGame = () => {
         setScore(0)
         setPlaying(true)
         setFinished(false)
@@ -48,6 +48,7 @@ const PopBalloons = () => {
                     </button>
                     <Score
                         value={score}
+                        onEnd={endGame}
                     />
                     <Timer
                         time={30000}
@@ -69,7 +70,7 @@ const PopBalloons = () => {
             )}
             {finished &&
                 <Fragment>
-                    <Score value={score} />
+                    <Score value={score} onEnd={endGame}/>
                     <button onClick={startGame}>Play Again</button>
                 </Fragment>
 
