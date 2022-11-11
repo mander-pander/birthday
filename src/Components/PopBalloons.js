@@ -4,7 +4,6 @@ import Balloons from './Balloons';
 import Balloon from './Balloon';
 import Score from './Score';
 import generateBalloons from '../utils/generateBalloons';
-import confetti from 'canvas-confetti';
 
 const PopBalloons = () => {
     const [playing, setPlaying] = useState(false);
@@ -16,13 +15,6 @@ const PopBalloons = () => {
     const onPop = points => setScore(score + points);
 
     const endGame = () => {
-        if (score >= 2) {
-            confetti({
-                particleCount: 300,
-                spread: 100,
-                origin: { y: .9 }
-              });
-        }
         setPlaying(false);
         setFinished(true);
     };
@@ -70,11 +62,11 @@ const PopBalloons = () => {
             )}
             {finished &&
                 <Fragment>
-                    <Score value={score} onEnd={endGame}/>
+                    <Score value={score} onEnd={endGame} />
                     <button onClick={startGame}>Play Again</button>
                 </Fragment>
-
             }
+
         </Fragment>
     );
 };
