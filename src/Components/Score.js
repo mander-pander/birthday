@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import confetti from 'canvas-confetti';
+import { Link } from "react-router-dom";
 
 const Score = ({ value, onEnd}) => {
     const [win, setWin] = useState(false);
@@ -27,7 +28,9 @@ const Score = ({ value, onEnd}) => {
                 <div>
                     {`Score: ${value}`}
                 </div>
-                <button>Hangman</button>
+                <button>
+                    <Link to="./Hangman">Hangman</Link>
+                </button>
             </>
         }
         </>
