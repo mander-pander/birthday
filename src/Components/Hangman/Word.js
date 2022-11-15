@@ -1,11 +1,13 @@
+import styles from "./Hangman.module.css";
+
 const Word = ({ word, correctLetters }) => {
 
     return (
-        <div>
+        <div className={styles.word}>
             {word.split('').map((letter, index) => {
                 return (
-                    <p key={index}>
-                        {correctLetters.includes(letter) ? letter : ''}
+                    <p className={styles.letters} key={index}>
+                        {correctLetters.includes(letter) ? letter : '_'}
                     </p>
                 )
             })}
