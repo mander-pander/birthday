@@ -1,4 +1,11 @@
-const Cake = () => {
+import {
+    useState
+} from "react";
+const Cake = ({ wrongLetters }) => {
+    const errors = wrongLetters.length;
+    console.log(errors);
+    const [show, setShow] = useState(true)
+
     return (
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
             viewBox="0 0 512 512" >
@@ -10,22 +17,31 @@ const Cake = () => {
 			100.174,189.217 33.391,189.217 33.391,222.609 478.609,222.609 478.609,189.217 		"/>
                 </g>
             </g>
+            {/* <!--rects are flames--> */}
+
             <g>
-                {/* <!--rects are flames--> */}
-                <g>
-                    <rect x="100.174" width="33.391" height="33.391" />
-                </g>
+                {errors < 1 &&
+                    <g>
+                        <rect x="100.174" width="33.391" height="33.391" />
+                    </g>
+                }
+                {errors < 2 &&
+                    <g>
+                        <rect x="289.391" width="33.391" height="33.391" />
+                    </g>
+                }
+                {errors < 3 &&
+                    <g>
+                        <rect x="378.435" width="33.391" height="33.391" />
+                    </g>
+                }
+                {errors < 4 &&
+                    <g>
+                        <rect x="189.217" width="33.391" height="33.391" />
+                    </g>
+                }
             </g>
-            <g>
-                <g>
-                    <rect x="289.391" width="33.391" height="33.391" />
-                </g>
-            </g>
-            <g>
-                <g>
-                    <rect x="378.435" width="33.391" height="33.391" />
-                </g>
-            </g>
+
             <g>
                 {/* <!-- middle of cake --> */}
                 <g>
@@ -40,14 +56,7 @@ const Cake = () => {
                     <polygon points="0,434.087 0,478.609 33.391,478.609 33.391,512 478.609,512 478.609,478.609 512,478.609 512,434.087 		" />
                 </g>
             </g>
-            <g>
-                <g>
-                    <rect x="189.217" width="33.391" height="33.391" />
-                </g>
-            </g>
-
-
-        </svg>
+        </svg >
 
     )
 }
