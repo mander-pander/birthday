@@ -1,49 +1,80 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Word from "./Word";
+import styles from "./Hangman.module.css";
+import Cake from "./Cake";
+import Wrong from "./Wrong";
+import CheckStatus from "./CheckStatus";
 
 const Hangman = () => {
-	const word = "TEST";
-    const alphabet = ["A", "B", "C", "D", "E", "F", "G",
-        "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-        "S", "T", "U", "V", "W", "X", "Y", "Z"];
-	const [correct, setCorrect] = useState([])
+	const word = "test";
+
+	const [correct, setCorrect] = useState([]);
+    const [wrong, setWrong] = useState([]);
     const [playing, setPlaying] = useState(false);
     const [finished, setFinished] = useState(false);
 
-	const hidden = word.split('').map(letter =>
-	correct.includes(letter) ? letter : "_").join(" ");
-
     const startGame = () => {
-        setPlaying(true)
-        setFinished(false)
+        setPlaying(true);
+        setFinished(false);
+        setWrong([]);
+        setCorrect([]);
     };
+
+    const endGame = () => {
+        setPlaying(false);
+        setFinished(true);
+    }
+
+    useEffect(() => {
+        const handleKeydown = event => {
+          const { key, keyCode } = event;
+          if (playing && keyCode >= 65 && keyCode <= 90) {
+            const letter = key.toLowerCase();
+            if (word.includes(letter)) {
+              if (!correct.includes(letter)) {
+                setCorrect(currentLetters => [...currentLetters, letter]);
+              } else {
+                console.log("wrong");
+              }
+            } else {
+              if (!wrong.includes(letter)) {
+                setWrong(currentLetters => [...currentLetters, letter]);
+              } else {
+                console.log("yes");
+              }
+            }
+          }
+        }
+        window.addEventListener('keydown', handleKeydown);
+
+        return () => window.removeEventListener('keydown', handleKeydown);
+      }, [correct, wrong, playing]);
 
 	return 	(
         <div>
             {!playing && !finished &&
                 <>
-                    <h1>Hangman</h1>
+                    <h1>Save your cake!</h1>
                     <button onClick={startGame}>Start</button>
                 </>
             }
 
             {playing && (
-                <div>
-                    <p>{hidden}</p>
-
-                    {alphabet.map((character, index) =>
-                        <button
-                            key={index} onClick={() => {
-                                if (word.includes(character)) {
-                                    setCorrect([...correct, character])
-                                }
-                            }}>
-                                {character}
-                        </button>
-                    )}
-
-                    {!hidden.includes("_")}
+                <div className={styles.container}>
+                    <Wrong wrongLetters={wrong} />
+                    <Word word={word} correctLetters={correct} />
+                    <Cake wrongLetters={wrong}/>
+                    <CheckStatus correctLetters={correct} wrongLetters={wrong} word={word} onEnd={endGame} />
                 </div>
             )}
+
+            {finished &&
+                <>
+                    <CheckStatus correctLetters={correct} wrongLetters={wrong} word={word} onEnd={endGame} />
+                    <Cake wrongLetters={wrong}/>
+                    <button onClick={startGame}>Play Again</button>
+                </>
+            }
 
 		</div>
     )
