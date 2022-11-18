@@ -6,7 +6,7 @@ import Wrong from "./Wrong";
 import CheckStatus from "./CheckStatus";
 
 const Hangman = () => {
-	const word = "test";
+	const word = "goddamn";
 
 	const [correct, setCorrect] = useState([]);
     const [wrong, setWrong] = useState([]);
@@ -53,10 +53,10 @@ const Hangman = () => {
 	return 	(
         <div>
             {!playing && !finished &&
-                <>
+                <div className={styles.home}>
                     <h1 className={styles.title}>Save your cake!</h1>
-                    <button onClick={startGame}>Start</button>
-                </>
+                    <button className={styles.match} onClick={startGame}></button>
+                </div>
             }
 
             {playing && (
