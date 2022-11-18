@@ -4,11 +4,14 @@ import Balloons from './Balloons';
 import Balloon from './Balloon';
 import Score from './Score';
 import generateBalloons from '../utils/generateBalloons';
+import styles from "./Balloon.module.css";
 
 const PopBalloons = () => {
     const [playing, setPlaying] = useState(false);
     const [finished, setFinished] = useState(false);
     const [score, setScore] = useState(0);
+
+    const [entryBalloons] = useState(generateBalloons(5));
 
     const [balloons] = useState(generateBalloons(18));
 
@@ -29,8 +32,10 @@ const PopBalloons = () => {
         <Fragment>
             {!playing && !finished &&
                 <Fragment>
-                    <h1>Pop the Balloons</h1>
-                    <button onClick={startGame}>Start</button>
+                    <h1 className={styles.title}>Pop the Balloons</h1>
+                    <div className={styles.startContainer}>
+                        {entryBalloons.map(()=> <button className={styles.start} onClick={startGame}></button>)}
+                    </div>
                 </Fragment>
             }
             {playing && (
@@ -61,10 +66,10 @@ const PopBalloons = () => {
                 </Fragment>
             )}
             {finished &&
-                <Fragment>
+                <div className={styles.scoreContainer}>
                     <Score value={score} onEnd={endGame} />
-                    <button onClick={startGame}>Play Again</button>
-                </Fragment>
+                    <button onClick={startGame} className={styles.again}>Play Again</button>
+                </div>
             }
 
         </Fragment>

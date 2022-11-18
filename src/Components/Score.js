@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import confetti from 'canvas-confetti';
 import { Link } from "react-router-dom";
+import styles from "./Balloon.module.css";
 
 const Score = ({ value, onEnd}) => {
     const [win, setWin] = useState(false);
@@ -19,19 +20,19 @@ const Score = ({ value, onEnd}) => {
     return (
         <>
         {!win &&
-            <div>
+            <div className={styles.header}>
                 {`Score: ${value}`}
             </div>
         }
         {win &&
-            <>
-                <div>
+            <div className={styles.winningScore}>
+                <div className={styles.header}>
                     {`Score: ${value}`}
                 </div>
                 <button>
-                    <Link to="./Hangman">Hangman</Link>
+                    <Link to="./Hangman">Phase 2</Link>
                 </button>
-            </>
+            </div>
         }
         </>
     )
