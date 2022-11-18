@@ -54,7 +54,7 @@ const Hangman = () => {
         <div>
             {!playing && !finished &&
                 <>
-                    <h1>Save your cake!</h1>
+                    <h1 className={styles.title}>Save your cake!</h1>
                     <button onClick={startGame}>Start</button>
                 </>
             }
