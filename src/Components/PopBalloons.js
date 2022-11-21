@@ -13,7 +13,7 @@ const PopBalloons = () => {
 
     const [entryBalloons] = useState(generateBalloons(5));
 
-    const [balloons] = useState(generateBalloons(18));
+    const [balloons] = useState(generateBalloons(16));
 
     const onPop = points => setScore(score + points);
 

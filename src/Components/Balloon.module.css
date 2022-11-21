@@ -2,27 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 
-.title, .header {
+.title, .header, button {
     font-family: 'Indie Flower', cursive;
+}
+
+.start, .balloons, .balloon {
     cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>📌</text></svg>") 16 0,auto; /*!emojicursor.app*/
+
+}
+
+.titleContainer > h1 {
+    margin: 0;
 }
 
 .balloons {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(6, 100px);
-    grid-template-rows: repeat(6, 100px);
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
     align-items: center;
-
 }
 
 .balloon {
-    background: url("../images/pngtree-blue-wedding-banquet-balloons-png-image_5524505.png");
-    background-size: cover;
+    background-color: white;
     height: 100%;
     width: 100%;
     border: 0;
-
 }
 
 .inflator {
@@ -69,7 +74,6 @@
 
 
   .start:before {
-    content:"▲";
     font-size:20px;
     color:hsl(215,30%,50%);
     display:block;
