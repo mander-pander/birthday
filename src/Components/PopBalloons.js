@@ -31,12 +31,14 @@ const PopBalloons = () => {
     return (
         <Fragment>
             {!playing && !finished &&
-                <Fragment>
+                <div className={styles.titleContainer}>
                     <h1 className={styles.title}>Pop the Balloons</h1>
+                    <h4 className={styles.title}>Pop a balloon to get started!</h4>
+                    <h5 className={styles.title}>Once you start, you'll have 31 seconds to pop 31 balloons!</h5>
                     <div className={styles.startContainer}>
                         {entryBalloons.map(()=> <button className={styles.start} onClick={startGame}></button>)}
                     </div>
-                </Fragment>
+                </div>
             }
             {playing && (
                 <Fragment>
