@@ -1,0 +1,23 @@
+.flames:nth-child(1){
+    animation: flame 2s 6.5s infinite;
+}
+
+.flames:nth-child(2){
+    animation: flame 1.5s 6.5s infinite;;
+}
+
+.flames:nth-child(3){
+    animation: flame 1s 6.5s infinite;
+
+}
+
+@keyframes flame {
+    0%, 100% {
+      box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+      transform: translateY(0);
+    }
+    50% {
+      background: rgba(255, 50, 0, 0.1);
+      transform: translateY(-10px);
+    }
+  }
