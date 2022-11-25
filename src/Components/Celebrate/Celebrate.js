@@ -1,21 +1,19 @@
-// import Confetti from "react-confetti";
-// import { ReactFloatingBalloons } from "react-floating-balloons";
-// import useSound from "use-sound";
-// import birthday from "../../images/hb128.mp3";
+import Confetti from "react-confetti";
+import useSound from "use-sound";
+import birthday from "../../images/hb128.mp3";
 import styles from "./Celebrate.module.css";
 import { useState } from "react";
 
 const Celebrate = () => {
-    // const playSong = useSound(birthday);
     const [isVisibile, setIsVisibile] = useState(false);
 
     const handleClick = event => {
         setIsVisibile(current => !current);
-      };
+    };
 
     return (
         <div className={styles.container}>
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                 viewBox="0 0 512.001 512.001" >
                 <rect x="35.526" y="325.855" fill="#65513C" width="440.953" height="178.011" />
                 <rect x="35.526" y="421.199" fill="#EED898" width="440.953" height="27.933" />
@@ -31,7 +29,7 @@ const Celebrate = () => {
                     c0,18.098-14.671,32.768-32.766,32.768s-32.766-14.67-32.766-32.768c0,18.098-14.672,32.768-32.769,32.768
                     c-18.096,0-32.766-14.67-32.766-32.768c0,18.098-14.671,32.768-32.768,32.768s-32.766-14.67-32.766-32.768v-19.656
                     c0-9.05,7.335-16.384,16.384-16.384H403.452z"/>
-                <g style={{visibility: isVisibile ? 'visible' : 'hidden'}}>
+                <g style={{ visibility: isVisibile ? 'visible' : 'hidden' }}>
                     <path className={styles.flames} fill="#FFB819" d="M215.041,46.183c0-9.861-17.853-38.056-17.853-38.056s-17.854,28.196-17.854,38.056
 		                s7.991,17.854,17.854,17.854C207.048,64.038,215.041,56.044,215.041,46.183z"/>
                     <path className={styles.flames} fill="#FFB819" d="M273.849,46.183c0-9.861-17.854-38.056-17.854-38.056S238.14,36.323,238.14,46.183
@@ -69,10 +67,12 @@ const Celebrate = () => {
                     c0,22.446-18.263,40.709-40.709,40.709s-40.709-18.262-40.709-40.709V314.38c0-8.983,7.308-16.291,16.291-16.291h439.522
                     c8.983,0,16.291,7.308,16.291,16.291V343.677z "/>
             </svg>
-            {/* <Confetti
+
+            <Confetti style={{ visibility: isVisibile ? 'visible' : 'hidden' }}
                 numberOfPieces={100}
-            /> */}
-            <h1>Happy Birthday, Tommy!</h1>
+            />
+
+            <h1 style={{ visibility: isVisibile ? 'visible' : 'hidden' }}>Happy Birthday, Tommy!</h1>
         </div>
     )
 }
