@@ -3,9 +3,15 @@
 // import useSound from "use-sound";
 // import birthday from "../../images/hb128.mp3";
 import styles from "./Celebrate.module.css";
+import { useState } from "react";
 
 const Celebrate = () => {
     // const playSong = useSound(birthday);
+    const [isVisibile, setIsVisibile] = useState(false);
+
+    const handleClick = event => {
+        setIsVisibile(current => !current);
+      };
 
     return (
         <div className={styles.container}>
@@ -25,7 +31,7 @@ const Celebrate = () => {
                     c0,18.098-14.671,32.768-32.766,32.768s-32.766-14.67-32.766-32.768c0,18.098-14.672,32.768-32.769,32.768
                     c-18.096,0-32.766-14.67-32.766-32.768c0,18.098-14.671,32.768-32.768,32.768s-32.766-14.67-32.766-32.768v-19.656
                     c0-9.05,7.335-16.384,16.384-16.384H403.452z"/>
-                <g>
+                <g style={{visibility: isVisibile ? 'visible' : 'hidden'}}>
                     <path className={styles.flames} fill="#FFB819" d="M215.041,46.183c0-9.861-17.853-38.056-17.853-38.056s-17.854,28.196-17.854,38.056
 		                s7.991,17.854,17.854,17.854C207.048,64.038,215.041,56.044,215.041,46.183z"/>
                     <path className={styles.flames} fill="#FFB819" d="M273.849,46.183c0-9.861-17.854-38.056-17.854-38.056S238.14,36.323,238.14,46.183
@@ -33,7 +39,7 @@ const Celebrate = () => {
                     <path className={styles.flames} fill="#FFB819" d="M332.656,46.183c0-9.861-17.853-38.056-17.853-38.056s-17.855,28.196-17.855,38.056
 		                s7.993,17.854,17.855,17.854C324.663,64.038,332.656,56.044,332.656,46.183z"/>
                 </g>
-                <path fill="#022A3A" d="
+                <path onClick={handleClick} fill="#022A3A" d="
                     M475.761,281.836h-63.704v-69.548c9.666-7.486,15.906-19.193,15.906-32.338v-19.656
                     c0-13.516-10.995-24.511-24.511-24.511h-80.524V80.915h-16.254v54.868h-42.553V80.915h-16.254v54.868h-42.553V80.915h-16.254v54.868
                     h-80.513c-13.516,0-24.511,10.995-24.511,24.511v19.656c0,13.144,6.239,24.852,15.906,32.338v69.548H36.239
