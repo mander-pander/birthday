@@ -1,5 +1,4 @@
 import Confetti from "react-confetti";
-import useSound from "use-sound";
 import birthday from "../../images/hb128.mp3";
 import styles from "./Celebrate.module.css";
 import { useState } from "react";
@@ -7,9 +6,15 @@ import { useState } from "react";
 const Celebrate = () => {
     const [isVisibile, setIsVisibile] = useState(false);
 
+    const play = () => {
+        new Audio(birthday).play();
+    }
+
     const handleClick = event => {
         setIsVisibile(current => !current);
+        play();
     };
+
 
     return (
         <div className={styles.container}>
