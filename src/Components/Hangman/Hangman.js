@@ -72,7 +72,7 @@ const Hangman = () => {
                 <>
                     <CheckStatus correctLetters={correct} wrongLetters={wrong} word={word} onEnd={endGame} />
                     <Cake wrongLetters={wrong}/>
-                    <button onClick={startGame}>Play Again</button>
+                    <button className={styles.endButton} onClick={startGame}>Play Again</button>
                 </>
             }
 

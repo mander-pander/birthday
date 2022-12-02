@@ -1,4 +1,5 @@
 import checkWin from "../../utils/checkWin";
+import styles from "./Hangman.module.css";
 
 const CheckStatus = ({correctLetters, wrongLetters, word, onEnd}) => {
     let finalMessage = '';
@@ -14,7 +15,7 @@ const CheckStatus = ({correctLetters, wrongLetters, word, onEnd}) => {
     return (
       <div>
         <div>
-          <h2>{finalMessage}</h2>
+          <h2 className={styles.title}>{finalMessage}</h2>
 
         </div>
       </div>
