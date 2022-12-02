@@ -1,24 +1,44 @@
 import checkWin from "../../utils/checkWin";
 import styles from "./Hangman.module.css";
+import { useState, useEffect } from "react";
 
 const CheckStatus = ({correctLetters, wrongLetters, word, onEnd}) => {
-    let finalMessage = '';
+    const [win, setWin] = useState(false);
+    const [lost, setLose] = useState(false);
 
-    if( checkWin(correctLetters, wrongLetters, word) === 'win' ) {
-      finalMessage = 'You saved the candles!';
-      onEnd();
-    } else if( checkWin(correctLetters, wrongLetters, word) === 'lose' ) {
-      finalMessage = 'No candles to blow out.';
-      onEnd();
-    }
+    useEffect(() => {
+      if(checkWin(correctLetters, wrongLetters, word) === 'win' ) {
+        onEnd();
+        setWin(true);
+      }
+    })
+
+    useEffect(() => {
+      if(checkWin(correctLetters, wrongLetters, word) === 'lose' ) {
+        onEnd();
+        setLose(true);
+      }
+    })
 
     return (
-      <div>
+      <>
+      {win &&
         <div>
-          <h2 className={styles.title}>{finalMessage}</h2>
-
+            <h2 className={styles.title}>
+              You saved the candles!
+            </h2>
+            <button>Ready to celebrate?</button>
         </div>
-      </div>
+      }
+
+      {lost &&
+        <div>
+          <h2 className={styles.title}>
+            No more candles to blow out!
+          </h2>
+        </div>
+      }
+      </>
     )
 }
 
