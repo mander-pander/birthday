@@ -13,6 +13,7 @@ const Celebrate = () => {
 
     return (
         <div className={styles.container}>
+            <h2 style={{ visibility: isVisibile ? 'hidden' : 'visible' }} className={styles.header}>Light the candles!</h2>
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                 viewBox="0 0 512.001 512.001" >
                 <rect x="35.526" y="325.855" fill="#65513C" width="440.953" height="178.011" />
@@ -37,7 +38,7 @@ const Celebrate = () => {
                     <path className={styles.flames} fill="#FFB819" d="M332.656,46.183c0-9.861-17.853-38.056-17.853-38.056s-17.855,28.196-17.855,38.056
 		                s7.993,17.854,17.855,17.854C324.663,64.038,332.656,56.044,332.656,46.183z"/>
                 </g>
-                <path onClick={handleClick} fill="#022A3A" d="
+                <path onClick={handleClick} className={styles.candles} fill="#022A3A" d="
                     M475.761,281.836h-63.704v-69.548c9.666-7.486,15.906-19.193,15.906-32.338v-19.656
                     c0-13.516-10.995-24.511-24.511-24.511h-80.524V80.915h-16.254v54.868h-42.553V80.915h-16.254v54.868h-42.553V80.915h-16.254v54.868
                     h-80.513c-13.516,0-24.511,10.995-24.511,24.511v19.656c0,13.144,6.239,24.852,15.906,32.338v69.548H36.239
