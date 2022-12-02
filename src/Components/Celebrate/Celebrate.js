@@ -72,7 +72,7 @@ const Celebrate = () => {
                 numberOfPieces={100}
             />
 
-            <h1 style={{ visibility: isVisibile ? 'visible' : 'hidden' }}>Happy Birthday, Tommy!</h1>
+            <h1 style={{ visibility: isVisibile ? 'visible' : 'hidden' }} className={styles.header}>Happy Birthday, Tommy!</h1>
         </div>
     )
 }

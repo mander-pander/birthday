@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.header {
+  font-family: 'Permanent Marker', cursive;
+}
+
 .flames:nth-child(1){
     animation: flame 2s 6.5s infinite;
 }
