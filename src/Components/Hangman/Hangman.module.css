@@ -1,12 +1,12 @@
 /* font */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-.header, .title, .word, .wrong, .endButton {
+.header, .title, .word, .wrong, .endButton, .winButton {
   font-family: 'VT323', monospace;
 }
 
 .title {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 .home {
@@ -54,6 +54,20 @@
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 20px;
+}
+
+.winButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.winButton a {
+  text-decoration: none;
+  color: black;
 }
 
 @keyframes burn {

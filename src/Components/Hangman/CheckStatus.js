@@ -1,6 +1,7 @@
 import checkWin from "../../utils/checkWin";
 import styles from "./Hangman.module.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const CheckStatus = ({correctLetters, wrongLetters, word, onEnd}) => {
     const [win, setWin] = useState(false);
@@ -23,11 +24,13 @@ const CheckStatus = ({correctLetters, wrongLetters, word, onEnd}) => {
     return (
       <>
       {win &&
-        <div>
+        <div className={styles.win}>
             <h2 className={styles.title}>
               You saved the candles!
             </h2>
-            <button>Ready to celebrate?</button>
+            <button className={styles.winButton}>
+              <Link to="../Celebrate">Ready to celebrate?</Link>
+            </button>
         </div>
       }
 

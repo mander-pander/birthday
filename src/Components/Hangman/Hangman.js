@@ -6,9 +6,9 @@ import Wrong from "./Wrong";
 import CheckStatus from "./CheckStatus";
 
 const Hangman = () => {
-	const word = "goddamn";
+	  const word = "goddamn";
 
-	const [correct, setCorrect] = useState([]);
+	  const [correct, setCorrect] = useState([]);
     const [wrong, setWrong] = useState([]);
     const [playing, setPlaying] = useState(false);
     const [finished, setFinished] = useState(false);
@@ -72,7 +72,8 @@ const Hangman = () => {
                 <>
                     <CheckStatus correctLetters={correct} wrongLetters={wrong} word={word} onEnd={endGame} />
                     <Cake wrongLetters={wrong}/>
-                    <button className={styles.endButton} onClick={startGame}>Play Again</button>
+                    <button className={styles.endButton} onClick={startGame}>Play Again?</button>
+
                 </>
             }
 
