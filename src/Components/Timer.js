@@ -21,7 +21,7 @@ const Timer = ({ time, interval = 1000, onEnd }) => {
   }, [interval]);
 
   return (
-    <span className="info__text">
+    <span>
       {`${internalTime / 1000}s`}
     </span>
   )

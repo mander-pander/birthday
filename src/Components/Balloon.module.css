@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 
-.title, .header, button {
+.title, .header, button, .score {
     font-family: 'Indie Flower', cursive;
 }
 
@@ -13,6 +13,10 @@
 
 .titleContainer > h1 {
     margin: 0;
+}
+
+.score {
+    font-size: 40px;
 }
 
 .balloons {
@@ -35,12 +39,7 @@
     width: 100%;
     overflow: hidden;
     border-radius: 30px;
-    border-bottom: 12px solid red;
-}
-
-.winningScore {
-    display: flex;
-    flex-direction: column;
+    border-bottom: 12px solid black;
 }
 
 .scoreContainer {
@@ -48,8 +47,30 @@
     flex-direction: column;
 }
 
+.endButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.nextPhase {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+.nextPhase a {
+    text-decoration: none;
+}
+
 .again {
-    margin-top: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 30px;
 }
 
 .start {

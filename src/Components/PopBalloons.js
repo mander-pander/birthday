@@ -42,7 +42,7 @@ const PopBalloons = () => {
             }
             {playing && (
                 <Fragment>
-                    <button onClick={endGame}>
+                    <button onClick={endGame} className={styles.endButton}>
                         End Game
                     </button>
                     <Score
@@ -70,7 +70,7 @@ const PopBalloons = () => {
             {finished &&
                 <div className={styles.scoreContainer}>
                     <Score value={score} onEnd={endGame} />
-                    <button onClick={startGame} className={styles.again}>Play Again</button>
+                    <button onClick={startGame} className={styles.again}>Play Again?</button>
                 </div>
             }
 

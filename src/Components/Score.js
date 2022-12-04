@@ -20,17 +20,17 @@ const Score = ({ value, onEnd}) => {
     return (
         <>
         {!win &&
-            <div className={styles.header}>
+            <div className={styles.score}>
                 {`Score: ${value}`}
             </div>
         }
         {win &&
             <div className={styles.winningScore}>
-                <div className={styles.header}>
-                    {`Score: ${value}`}
+                <div className={styles.score}>
+                    <h3>{`Score: ${value}`}</h3>
                 </div>
-                <button>
-                    <Link to="./Hangman">Phase 2</Link>
+                <button className={styles.nextPhase}>
+                    <Link to="./Hangman">Go to Phase 2 ➟</Link>
                 </button>
             </div>
         }
