@@ -50,7 +50,7 @@ const PopBalloons = () => {
                         onEnd={endGame}
                     />
                     <Timer
-                        time={30000}
+                        time={31000}
                         onEnd={endGame}
                     />
                     <Balloons>

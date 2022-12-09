@@ -1,9 +1,10 @@
 /* font */
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 
-.title, .header, button, .score {
-    font-family: 'Indie Flower', cursive;
+.title, .header, button, .score, .timer {
+    font-family: 'VT323', monospace;
 }
 
 .start, .balloons, .balloon {

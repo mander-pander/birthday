@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import styles from "./Balloon.module.css";
 
 const Timer = ({ time, interval = 1000, onEnd }) => {
   const [internalTime, setInternalTime] = useState(time);
@@ -21,7 +22,7 @@ const Timer = ({ time, interval = 1000, onEnd }) => {
   }, [interval]);
 
   return (
-    <span>
+    <span className={styles.timer}>
       {`${internalTime / 1000}s`}
     </span>
   )

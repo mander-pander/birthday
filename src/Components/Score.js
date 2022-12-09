@@ -7,7 +7,7 @@ const Score = ({ value, onEnd}) => {
     const [win, setWin] = useState(false);
 
     useEffect(() => {
-        if(value === 2) {
+        if(value === 31) {
             onEnd();
             confetti({
                 particleCount: 300,
