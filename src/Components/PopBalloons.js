@@ -10,11 +10,13 @@ const PopBalloons = () => {
     const [playing, setPlaying] = useState(false);
     const [finished, setFinished] = useState(false);
     const [score, setScore] = useState(0);
-    const [age, setAge] = useState();
+    const [age, setAge] = useState(0);
 
     const [entryBalloons] = useState(generateBalloons(5));
 
-    const [balloons] = useState(generateBalloons(16));
+    const [balloons] = useState(generateBalloons({age}));
+    console.log(age)
+    const time = age * 1000;
 
     const onPop = points => setScore(score + points);
 
@@ -27,7 +29,6 @@ const PopBalloons = () => {
         setScore(0);
         setPlaying(true);
         setFinished(false);
-        console.log(age);
     };
 
     return (
@@ -37,7 +38,7 @@ const PopBalloons = () => {
                     <input type="number" placeholder='0' onChange={e => setAge(e.target.value)} />
                     <h1>Pop the Balloons</h1>
                     <h4>Pop a balloon to get started!</h4>
-                    <h5>Once you start, you'll have 31 seconds to pop 31 balloons!</h5>
+                    <h5>Once you start, you'll have {age} seconds to pop {age} balloons!</h5>
                     <div className={styles.startContainer}>
                         {entryBalloons.map(()=> <button className={styles.start} onClick={startGame}></button>)}
                     </div>
@@ -53,7 +54,7 @@ const PopBalloons = () => {
                         onEnd={endGame}
                     />
                     <Timer
-                        time={31000}
+                        time={time}
                         onEnd={endGame}
                     />
                     <Balloons>
