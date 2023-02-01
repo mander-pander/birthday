@@ -10,6 +10,7 @@ const PopBalloons = () => {
     const [playing, setPlaying] = useState(false);
     const [finished, setFinished] = useState(false);
     const [score, setScore] = useState(0);
+    const [age, setAge] = useState();
 
     const [entryBalloons] = useState(generateBalloons(5));
 
@@ -23,18 +24,20 @@ const PopBalloons = () => {
     };
 
     const startGame = () => {
-        setScore(0)
-        setPlaying(true)
-        setFinished(false)
+        setScore(0);
+        setPlaying(true);
+        setFinished(false);
+        console.log(age);
     };
 
     return (
         <Fragment>
             {!playing && !finished &&
                 <div className={styles.titleContainer}>
-                    <h1 className={styles.title}>Pop the Balloons</h1>
-                    <h4 className={styles.title}>Pop a balloon to get started!</h4>
-                    <h5 className={styles.title}>Once you start, you'll have 31 seconds to pop 31 balloons!</h5>
+                    <input type="number" placeholder='0' onChange={e => setAge(e.target.value)} />
+                    <h1>Pop the Balloons</h1>
+                    <h4>Pop a balloon to get started!</h4>
+                    <h5>Once you start, you'll have 31 seconds to pop 31 balloons!</h5>
                     <div className={styles.startContainer}>
                         {entryBalloons.map(()=> <button className={styles.start} onClick={startGame}></button>)}
                     </div>
