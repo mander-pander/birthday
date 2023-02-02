@@ -3,14 +3,25 @@ import birthday from "../../images/hb128.mp3";
 import styles from "./Celebrate.module.css";
 import { useState } from "react";
 
-const Celebrate = () => {
+let song = new Audio(birthday);
+
+const Celebrate = ({ name }) => {
     const [isVisibile, setIsVisibile] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
+
 
     const play = () => {
-        new Audio(birthday).play();
+        if (!isPlaying) {
+            song.play();
+            setIsPlaying(true);
+        } else {
+            song.pause();
+            setIsPlaying(false);
+        }
     }
 
     const handleClick = event => {
+        setIsPlaying(current => !current);
         setIsVisibile(current => !current);
         play();
     };
@@ -19,7 +30,7 @@ const Celebrate = () => {
     return (
         <div className={styles.container}>
             <h2 style={{ visibility: isVisibile ? 'hidden' : 'visible' }} className={styles.header}>Light the candles!</h2>
-            <h1 style={{ visibility: isVisibile ? 'visible' : 'hidden' }} className={styles.header}>Happy Birthday, Tommy!</h1>
+            <h1 style={{ visibility: isVisibile ? 'visible' : 'hidden' }} className={styles.header}>Happy Birthday, {name}!</h1>
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                 viewBox="0 0 512.001 512.001" >
                 <rect x="35.526" y="325.855" fill="#65513C" width="440.953" height="178.011" />
