@@ -1,0 +1,134 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+.titleContainer, .header, button, .score, .timer {
+    font-family: 'VT323', monospace;
+}
+
+.start, .balloons, .balloon {
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>📌</text></svg>") 16 0,auto; /*!emojicursor.app*/
+
+}
+
+.titleContainer h1{
+    margin: 0;
+}
+
+
+.birthdayInput {
+    margin-bottom: 10px;
+}
+
+.score {
+    font-size: 40px;
+}
+
+.balloons {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    align-items: center;
+}
+
+.balloon {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border: 0;
+}
+
+.inflator {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 30px;
+    border-bottom: 12px solid black;
+}
+
+.scoreContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.endButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.nextPhase {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+.nextPhase a {
+    text-decoration: none;
+}
+
+.again {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.start {
+    display:inline-block;
+     width:120px;
+    height:145px;
+    background:hsl(215,50%,65%);
+    border-radius:80%;
+    position:relative;
+    box-shadow:inset -10px -10px 0 rgba(0,0,0,0.07);
+    margin:20px 30px;
+    transition:transform 0.5s ease;
+    z-index:10;
+    animation:float 4s ease-in-out infinite;
+    transform-origin:bottom center;
+}
+
+@keyframes float {
+    0%,100%{ transform:translateY(0) rotate(-4deg); }
+    50%{ transform:translateY(-25px) rotate(4deg); }
+}
+
+
+  .start:before {
+    font-size:20px;
+    color:hsl(215,30%,50%);
+    display:block;
+    text-align:center;
+    width:100%;
+    position:absolute;
+    bottom:-12px;
+    z-index:-100;
+  }
+
+  .start:after {
+   display:inline-block; top:153px;
+    position:absolute;
+    height:250px;
+    width:1px;
+    margin:0 auto;
+    content:"";
+    background:rgba(0,0,0,0.2);
+  }
+
+  .start:nth-child(2){ background:hsl(245,40%,65%); animation-duration:3.5s; }
+  .start:nth-child(2):before { color:hsl(245,40%,65%);  }
+
+  .start:nth-child(3){ background:hsl(139,50%,60%); animation-duration:3s; }
+  .start:nth-child(3):before { color:hsl(139,30%,50%);  }
+
+  .start:nth-child(4){ background:hsl(59,50%,58%); animation-duration:4.5s; }
+  .start:nth-child(4):before { color:hsl(59,30%,52%);  }
+
+  .start:nth-child(5){ background:hsl(23,55%,57%); animation-duration:5s; }
+  .start:nth-child(5):before { color:hsl(23,44%,46%);  }
