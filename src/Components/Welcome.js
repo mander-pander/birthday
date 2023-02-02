@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from "./Welcome.module.css";
 
 
 const Welcome = ({ setName, setAge, setWord }) => {
@@ -12,8 +13,8 @@ const Welcome = ({ setName, setAge, setWord }) => {
       }
 
     return (
-        <Fragment>
-            <form onSubmit={handleSubmit}>
+        <Fragment >
+            <form className={styles.container} onSubmit={handleSubmit}>
                 <h1>Let's get started on the birthday celebration!</h1>
                 <h4>What's the name of the birthday person?</h4>
                 <input type="text" placeholder='name' onChange={e => setName(e.target.value)} />
